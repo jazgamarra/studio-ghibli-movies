@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Ghibli Movies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="bg-cyan-700 text-xl text-center font-mono text-yellow-50 p-4 md:text-3xl xl:text-4xl ">
+      *:･ﾟ✧*:･ﾟ Studio Ghibli Movies *:･ﾟ✧*:･ﾟ
+    </header>
+    <main>
+      <!-- Main -->
+      <div class="bg-cyan-700 sm:px-32 py-2">
+        {% for pelicula in peliculas: %}
+          <!-- Bloque por pelicula  -->
+          <div class="bg-yellow-50 m-2 p-4 rounded-xl flex flex-row">
+            <img src="{{pelicula['image']}}" alt="{{pelicula['title']}}" class="h-40 md:h-72 rounded-xl" />
+
+            <!-- Bloque de informacion sobre la pelicula -->
+            <div class="pl-4 font-mono grid content-evenly text-cyan-700">
+              <div> 
+                <h1 class="text-2xl">{{ pelicula['title'] }}</h1>
+                <h3 class="text-xl"></h3>>{{ pelicula['original_title'] }}</h3>
+              </div>
+              <p class="bg-cyan-700 rounded-full w-16 text-center text-yellow-50  my-2">{{ pelicula['release_date'] }}</p>
+              <h2 class="text-justify my-2">{{ pelicula['description'] }}</h2>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>
